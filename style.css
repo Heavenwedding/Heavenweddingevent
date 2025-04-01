@@ -26,8 +26,73 @@ body
     background-color: var(--bg-color);
 
 }
-
+/*header
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    background: transparent;
+    padding: 27px 17%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all .50s ease;
+}
+.logo
+{
+    font-size: 33px;
+    color: var(--text-color);
+    font-weight: 700;
+}
+span
+{
+  color: var(--main-color);
+}
+.navbar
+{
+    display: flex;
+}
+.navbar a
+{
+    color: var(--text-color);
+    font-size: var(--p-font);
+    font-weight: 500;
+    margin: 15px 22px;
+    transition: all .50s ease;
+}
+.navbar a:hover
+{
+    color: var(--main-color);
+}
+.h-right
+{
+    display: flex;
+    align-items: center;
+}
+.h-right a:first-child
+{
+  color: var(--text-color);
+  font-size: var(--p-font);
+  margin-right: 20px;
+}
+.h-right a
+{
+    vertical-align: middle;
+    font-size: 20px;
+    color: var(--text-color);
+    margin-right: 3px;
+    margin-left:5px;
+    transition: all .50s ease;
+}
+.h-right a:hover
+{
+    color: var(--main-color);
+    transform: translateY(-3px);
+}*/
 /* General Header Styles */
+
 header {
   display: flex;
   justify-content: space-between;
@@ -75,193 +140,351 @@ header {
   transition: color 0.3s ease;
 }
 
-.h-right a:hover {
-  color: #ffeb3b; /* Highlight link color on hover */
+/* Hide checkbox */
+.menu-toggle {
+  display: none;
 }
 
-#menu-icon {
+/* Menu button */
+.menu-icon {
   font-size: 2rem;
-  color: #fff;
+  color: #000;
   cursor: pointer;
-  display: none; /* Hidden by default */
+  display: none; /* Hidden on larger screens */
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1050px) {
+  /* Hide the navbar */
   .navbar {
-    display: none; /* Hide navbar by default */
-    flex-direction: column; /* Stack items vertically */
-    background: #fff; /* Optional: background for dropdown */
-    width: 100%; /* Make it span the full screen width */
-    position: absolute;
-    top: 70px; /* Adjust to sit below the header */
-    left: 0;
-    padding: 20px 0;
-  }
-
-  .navbar.show {
-    display: flex; /* Show navbar when toggled */
-  }
-
-  #menu-icon {
-    display: block; /* Show the menu icon */
-  }
-}
-
-#menu-icon
-{
-    color: var(--text-color);
-    font-size: 30px;
-    cursor: pointer;
-    z-index: 10001;
     display: none;
+  }
+
+  /* Show menu button */
+  .menu-icon {
+    display: block;
+    position: absolute;
+    right: 20px; /* Keep aligned to the right */
+    top: 15px;
+  }
 }
+
+
+/* Responsive Mobile Menu */
+@media screen and (max-width: 768px) {
+  /* Hide navbar by default */
+  .navbar {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  /* Show menu button */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Show menu when checkbox is checked */
+  .menu-toggle:checked ~ .navbar {
+    display: flex;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* Hide navbar by default */
+  .navbar {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  /* Show menu button */
+  .menu-icon {
+    display: block;
+    position: absolute;
+    right: 10px; /* Move menu button to the right corner */
+    top: 15px;
+  }
+
+  /* Adjust Follow Us icons */
+  .h-right {
+    position: absolute;
+    right: 50px; /* Keep icons 30px away from menu button */
+    top: 15px;
+    display: flex;
+    gap: 30px; /* Ensure spacing */
+  }
+
+  /* Show menu when checkbox is checked */
+  .menu-toggle:checked ~ .navbar {
+    display: flex;
+  }
+}
+@media screen and (max-width: 400px) {
+  header {
+    padding: 8px 12px; /* Adjust padding */
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 12px 0;
+    text-align: center;
+  }
+
+  /* Menu button */
+  .menu-icon {
+    display: block;
+    position: absolute;
+    right: 10px; /* Align menu button to the right */
+    top: 8px;
+  }
+
+  /* Show menu when checked */
+  .menu-toggle:checked ~ .navbar {
+    display: flex;
+  }
+
+  /* Follow Us Icons */
+  .h-right {
+    position: absolute;
+    right: 40px; /* Keep 30px spacing */
+    top: 8px;
+    display: flex;
+    gap: 30px; /* Maintain spacing */
+  }
+
+  .h-right a {
+    font-size: 1rem; /* Adjust icon size */
+  }
+}
+
+@media screen and (max-width: 350px) {
+  header {
+    padding: 6px 10px; /* Reduce padding */
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  /* Menu button */
+  .menu-icon {
+    display: block;
+    position: absolute;
+    right: 8px; /* Push menu button to right */
+    top: 5px;
+  }
+
+  /* Show menu when checked */
+  .menu-toggle:checked ~ .navbar {
+    display: flex;
+  }
+
+  /* Follow Us Icons */
+  .h-right {
+    position: absolute;
+    right: 40px; /* Maintain 30px spacing */
+    top: 5px;
+    display: flex;
+    gap: 30px;
+  }
+
+  .h-right a {
+    font-size: 0.8rem; /* Reduce text size */
+  }
+}
+
+@media screen and (max-width: 320px) {
+  /* Hide 'Follow Us' text */
+  .h-right a:first-child {
+    display: none; /* This removes only the 'Follow Us' text */
+  }
+
+  /* Ensure icons and menu button have proper spacing */
+  .h-right {
+    position: absolute;
+    right: 60px; /* Ensure spacing between icons and menu button */
+    display: flex;
+    gap: 30px; /* Maintain minimum 30px space */
+  }
+
+  .menu-icon {
+    position: absolute;
+    right: 10px; /* Keep menu button aligned far right */
+    top: 5px;
+  }
+}
+ 
+
+
 section
 {
     padding: 70px 17% 60px;
 }
 
+/* Home Section */
 .home {
-  display: flex; /* Align elements horizontally */
-  align-items: center; /* Center content vertically */
-  justify-content: space-between; /* Space out left and right sections */
+  display: flex;
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient(to left, rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url(one-desk.png);
-  background-size: cover;
-  background-position: center center;
-  padding: 20px;
-  gap: 20px; /* Space between sections */
-  flex-wrap: wrap; /* Allows sections to stack if needed */
+  background-color: #ffffff; /* White background */
+  padding: 40px;
 }
 
-.content {
-  flex: 1; /* Take up equal space for responsiveness */
-  max-width: 50%; /* Limit width for the left content */
-  text-align: left; /* Align text to the left */
+/* Left Container */
+.home-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Separate top and bottom */
+  width: 40%; /* Allocate 40% of space */
   padding: 20px;
+  align-items: center;
 }
 
-.content h1 {
-  font-size: 4rem;
+/* Top Left: Enlarged Logo */
+.logo {
+  width: 100%; /* Take full width of left container */
+  max-width: 300px; /* Make logo bigger */
+  margin-bottom: 40px;
+}
+
+/* Bottom Left: Text & Button */
+.home-text {
+  text-align: left;
+  width: 100%; /* Ensure proper alignment */
+}
+
+.home-text h1 {
+  font-size: 3.5rem;
   font-weight: 800;
   color: #000;
-  margin-bottom: 10px;
 }
 
-.content h5 {
+.home-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.home-text p {
   font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 6px;
-  color: var(--main-color);
-  margin-bottom: 20px;
-}
-
-.content p {
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 30px;
   color: #000;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
 }
 
 .btn {
   display: inline-block;
-  padding: 13px 40px;
+  padding: 12px 30px;
   background: var(--main-color);
-  color: #000;
+  color: var(--bg-color);
   font-size: 16px;
   font-weight: 600;
-  border: 2px solid transparent;
   border-radius: 5px;
-  transition: all 0.5s ease;
   cursor: pointer;
 }
 
 .btn:hover {
-  transform: translateX(10px);
-  border: 2px var(--text-color);
   background: transparent;
+  border: 2px solid var(--text-color);
 }
 
-.logo-container {
-  flex: 1; /* Take up equal space for responsiveness */
-  max-width: 50%; /* Limit width for the right content */
+/* Right Side: Large Image */
+.home-right {
+  width: 60%;
   display: flex;
-  align-items: center; /* Center logo vertically */
-  justify-content: center; /* Center logo horizontally */
+  justify-content: center;
+  align-items: center;
 }
 
-.big-logo {
-  width: 100%; /* Allow the logo to adjust */
-  max-width: 300px; /* Restrict maximum size */
-  height: auto; /* Maintain aspect ratio */
+.home-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
 }
 
-/* Responsive Styling */
-@media (max-width: 768px) {
+/* Responsive Design */
+@media screen and (max-width: 768px) {
   .home {
-      flex-direction: column; /* Stack sections vertically */
-      align-items: center; /* Center align content */
+    flex-direction: column; /* Stack content */
+    text-align: center;
+    padding: 20px;
   }
 
-  .content, .logo-container {
-      max-width: 100%; /* Full width for both sections */
+  .home-left {
+    width: 100%;
+    align-items: center;
   }
 
-  .big-logo {
-      max-width: 200px; /* Reduce logo size for smaller screens */
+  .logo {
+    max-width: 200px; /* Adjust logo size for smaller screens */
   }
 
-  .content h1 {
-      font-size: 2.5rem; /* Adjust font size for smaller screens */
+  .home-text {
+    text-align: center;
   }
 
-  .content p {
-      font-size: 18px; /* Adjust paragraph font size */
+  .home-right {
+    width: 100%;
+  }
+
+  .home-image {
+    max-width: 80%;
   }
 }
 
-@media (max-width: 480px) {
-  .big-logo {
-      max-width: 150px; /* Further reduce logo size for very small screens */
+@media screen and (max-width: 480px) {
+  .home-text h1 {
+    font-size: 2.5rem;
   }
 
-  .content h1 {
-      font-size: 2rem; /* Adjust heading size */
+  .home-text h2 {
+    font-size: 1.5rem;
   }
 
-  .content p {
-      font-size: 16px; /* Adjust paragraph font size */
+  .home-text p {
+    font-size: 14px;
   }
 
   .btn {
-      font-size: 14px;
-      padding: 10px 20px; /* Adjust button padding */
+    font-size: 14px;
+    padding: 10px 25px;
+  }
+
+  .logo {
+    max-width: 180px; /* Further reduce logo size for very small screens */
+  }
+
+  .home-image {
+    max-width: 100%;
   }
 }
-@media (max-width: 320px) {
-  .big-logo {
-      max-width: 120px; /* Further reduce logo size */
-  }
 
-  .content h1 {
-      font-size: 1.8rem; /* Adjust heading size for very small screens */
-  }
 
-  .content p {
-      font-size: 14px; /* Adjust paragraph font size */
-  }
 
-  .btn {
-      font-size: 12px; /* Adjust button font size */
-      padding: 8px 16px; /* Reduce button padding */
-  }
-
-  .home {
-      padding: 10px; /* Adjust overall padding */
-  }
-}
 
 
 .feature-content
@@ -271,7 +494,6 @@ section
     align-items: center;
     text-align: center;
     gap: 3rem;
-    
 }
 .row-image
 {
@@ -381,46 +603,6 @@ section
       flex-direction: column; /* Stack text content */
     }
   }
-  @media (max-width: 320px) {
-    .holiday {
-        grid-template-columns: 1fr; /* Stack content in one column */
-        gap: 1.5rem; /* Adjust spacing for compact screens */
-        text-align: center; /* Center-align text for readability */
-    }
-  
-    .holiday-img {
-        justify-self: center; /* Ensure image is horizontally centered */
-    }
-  
-    .holiday-text {
-        margin: 0 auto; /* Center text content */
-        padding: 10px; /* Add padding for better spacing */
-        display: flex;
-        flex-direction: column; /* Stack text elements */
-    }
-  
-    .holiday-text h5 {
-        font-size: 1em; /* Reduce font size for smaller screens */
-        margin-bottom: 8px;
-    }
-  
-    .holiday-text h2 {
-        font-size: 1.5em; /* Adjust heading size */
-        margin-bottom: 15px;
-    }
-  
-    .holiday-text p {
-        font-size: 0.9em; /* Adjust paragraph font size */
-        line-height: 1.4; /* Modify line spacing */
-        margin-bottom: 15px;
-    }
-  
-    .holiday-text .btn {
-        padding: 8px 16px; /* Reduce button padding */
-        font-size: 0.9em; /* Adjust button text size */
-    }
-  }
-  
   
   .services {
     padding: 60px 20px; /* Increased padding for more space from previous content */
